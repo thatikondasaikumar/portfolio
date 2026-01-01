@@ -53,30 +53,44 @@ body {
 .hero {
   min-height: 100vh;
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 120px 80px;
+
+  padding: 140px 60px;
   gap: 80px;
 
   background:
-    linear-gradient(
-      rgba(5, 11, 20, 0.85),
-      rgba(5, 11, 20, 0.85)
-    ),
-    url("assets/bg.png");
+    linear-gradient(rgba(5, 11, 20, 0.88), rgba(5, 11, 20, 0.88)),
+    url("assets/bg.jpg");
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+.hero-left,
+.hero-right {
+  flex: 1;
+}
+
+.hero-left {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-right {
+  max-width: 650px;
+}
+
 
 
 .hero-left img {
-  width: 280px;
-  height: 280px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   object-fit: cover;
   border: 5px solid #4da3ff;
 }
+
 
 .hero-right h4 {
   color: #4da3ff;
@@ -89,16 +103,12 @@ body {
   margin-bottom: 20px;
 }
 
-.hero-right h1 span {
-  color: #6aa9ff;
-}
-
 .hero-right p {
   font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 35px;
 }
+
 
 /* BUTTONS */
 .buttons a {
@@ -117,3 +127,25 @@ body {
   color: black;
   font-weight: bold;
 }
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+    padding: 160px 20px;
+  }
+
+  .hero-right {
+    max-width: 100%;
+  }
+
+  .hero-right h1 {
+    font-size: 40px;
+  }
+
+  .hero-left img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
