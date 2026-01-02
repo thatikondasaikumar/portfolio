@@ -3,70 +3,167 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sai Kumar | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Sai Kumar | Data Analyst Portfolio</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <style>
+    html { scroll-behavior:smooth; }
+    #hero, #about, #skills, #expertise, #experience, #projects, #education, #contact { scroll-margin-top: 90px; }
+
+    * { font-family: "Times New Roman", Times, serif; }
+
+    :root{
+      --bg: #0b0b0b;
+      --text: #ffffff;
+      --muted: #1f2937;
+      --accent: #60a5fa;
+      --accent-2: #3b82f6;
+    }
+
+    body{ background:var(--bg); color:var(--text); }
+
+    a{ color:var(--accent); text-decoration:none; }
+    a:hover{ color:var(--accent-2); text-decoration:underline; }
+
+    .section{
+      padding-top:4rem; padding-bottom:4rem;
+      border-top:1px solid var(--muted);
+    }
+
+    .h-title{ color:var(--accent); }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+      padding:.75rem 1.1rem; border-radius:.6rem; font-weight:700;
+      border:1px solid var(--accent); color:var(--accent);
+      transition: all .15s ease;
+    }
+    .btn:hover{ transform:translateY(-1px); box-shadow:0 10px 20px rgba(96,165,250,.15); }
+    .btn-solid{ background:var(--accent); color:#0b0b0b; border-color:transparent; }
+
+    .chip{
+      display:inline-block; padding:.35rem .8rem; border-radius:999px;
+      border:1px solid var(--muted); color:#e5e7eb;
+      background:rgba(31,41,55,.35);
+    }
+
+    .card{
+      background:#111318; border:1px solid var(--muted); border-radius:1rem;
+    }
+
+    .nav-blur{ backdrop-filter: blur(8px); background:rgba(0,0,0,.7); }
+
+    #hero,
+    #about {
+      background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        url("./assets/hero-wallpaper.jpg") center / cover no-repeat;
+    }
+
+    #about.section { border-top-color: transparent; }
+
+    @media (min-width: 1024px) {
+      #hero, #about { background-attachment: fixed; }
+    }
+  </style>
 </head>
+
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo">SAI KUMAR</div>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="#contact" class="hire-btn">Hire Me</a>
+<nav class="fixed top-0 inset-x-0 nav-blur z-50 border-b border-[var(--muted)]">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#" class="text-xl font-bold tracking-wide h-title">SAI KUMAR</a>
+    <div class="hidden md:flex items-center gap-6 text-sm">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="ml-4 rounded-xl bg-blue-500 hover:bg-blue-600 px-5 py-2 font-semibold text-black">
+      Hire Me
+    </a>
+  </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <img src="assets/profile.jpg" alt="Sai Kumar">
-  </div>
+<header id="hero" class="pt-28 pb-16">
+  <div class="max-w-6xl mx-auto px-6 grid gap-10 md:grid-cols-2 items-center">
 
-  <div class="hero-right">
-    <h4>HELLO!</h4>
-    <h1>I’m <span>Sai Kumar</span></h1>
-    <p>
-      Data Analyst / Data Scientist — <br>
-      Turning data into insights using SQL, Python, Power BI & ML.
-    </p>
+    <div class="flex justify-center md:justify-start">
+      <img src="./assets/profile.jpg" alt="Sai Kumar"
+           class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover ring-4 ring-indigo-500/40 shadow-2xl"/>
+    </div>
 
-    <div class="buttons">
-      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-      <a href="https://github.com/saikumarthatikondacoderepo" target="_blank">GitHub</a>
-      <a href="mailto:your@email.com">Email</a>
-      <a class="cv" href="assets/Sai_Kumar_CV.pdf">Download CV</a>
+    <div class="text-center md:text-left">
+      <p class="text-lg text-gray-300">HELLO!</p>
+      <h1 class="mt-2 text-5xl md:text-6xl font-bold">
+        I'm <span class="text-indigo-300">Sai Kumar</span>
+      </h1>
+
+      <p class="mt-5 text-xl text-gray-300">
+        Data Analyst / Data Scientist —<br>
+        <span id="typed-text"></span>
+      </p>
+
+      <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-3">
+        <a href="https://www.linkedin.com/in/sai-kumar-thatikonda/" class="btn">LinkedIn</a>
+        <a href="https://github.com/thatikondasaikumar" class="btn">GitHub</a>
+        <a href="mailto:thatikondasaikumar12@gmail.com" class="btn">Email</a>
+        <a href="./assets/Sai_Kumar_CV.pdf" class="btn btn-solid" download>Download CV</a>
+      </div>
     </div>
   </div>
-</section>
-<!-- ABOUT SECTION -->
-<section id="about" class="about">
-  <div class="about-container">
-    <h2>About Me</h2>
+</header>
 
-    <p>
-      I am a Data Analyst and aspiring Data Scientist with a strong foundation in
-      data analysis, statistics, and machine learning. I enjoy transforming raw
-      data into meaningful insights that support business and operational decisions.
-    </p>
-
-    <p>
-      I have hands-on experience working with SQL, Python, Power BI, and Tableau,
-      and have applied these skills across academic and practical projects including
-      data modelling, dashboard development, and predictive analytics.
-    </p>
-
-    <p>
-      Currently pursuing a Master’s degree in Data Science, I bring a combination of
-      analytical thinking, technical expertise, and strong problem-solving skills,
-      along with prior IT experience in real-world environments.
+<!-- ABOUT -->
+<section id="about" class="section">
+  <div class="max-w-5xl mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-6 h-title">About</h2>
+    <p class="text-lg text-gray-200">
+      Hi, I'm <strong>Sai Kumar</strong> — a data professional passionate about
+      analytics, machine learning, and transforming complex data into actionable insights.
+      I work with <strong>Python, SQL, Power BI, Tableau, and ML</strong> to solve real-world problems.
     </p>
   </div>
 </section>
 
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4 h-title">Get In Touch</h2>
+    <p class="text-gray-400 mb-6">Feel free to reach out for roles or collaborations.</p>
+
+    <p>Email: <a href="mailto:thatikondasaikumar12@gmail.com">YOUR-EMAIL@gmail.com</a></p>
+  </div>
+</section>
+
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/feather-icons"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  feather.replace();
+  AOS.init({ once: true });
+
+  const text = "I turn data into decisions using Python, SQL, Power BI, and Machine Learning.";
+  const el = document.getElementById("typed-text");
+  let i = 0;
+  (function type() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i++);
+      setTimeout(type, 35);
+    }
+  })();
+</script>
 
 </body>
 </html>
