@@ -551,7 +551,9 @@
 
       <!-- RIGHT: form -->
 <div data-aos="fade-left">
-  <form action="https://formspree.io/f/xgvnvbbe" method="POST"
+  <form id="contact-form"
+        action="https://formspree.io/f/mqeaprba"
+        method="POST"
         class="bg-dark p-8 rounded-xl border border-gray-800">
 
     
@@ -587,43 +589,18 @@
     </div>
 
     <button type="submit"
-        class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition">
-        Send Message
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition">
+      Send Message
     </button>
-
-    <!-- Thank you message -->
-    <div id="thankyou-message" class="hidden text-green-400 mt-4 font-semibold text-center">
-      Your message has been received. Thank you!
-    </div>
-    <script>
-  const form = document.querySelector('form[action="https://formspree.io/f/mqeaprba"]');
-  const thankyouMessage = document.getElementById('thankyou-message');
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // prevent default submit
-
-    // Send form data using fetch API
-    const formData = new FormData(form);
-    fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then(response => {
-      if (response.ok) {
-        form.reset();  // clear form inputs
-        thankyouMessage.classList.remove('hidden'); // show message
-      } else {
-        alert('Oops! There was a problem submitting your form');
-      }
-    }).catch(() => {
-      alert('Oops! There was a problem submitting your form');
-    });
-  });
-</script>
-
   </form>
+
+    <div id="thankyou-message"
+       class="hidden text-green-400 mt-4 font-semibold text-center">
+    Your message has been received. Thank you!
+  </div>
+</div>
+    
+
 </div>
 
 
@@ -669,5 +646,35 @@
     });
 </script>
 </div>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  const thankyouMessage = document.getElementById('thankyou-message');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { Accept: 'application/json' }
+      });
+
+      if (response.ok) {
+        form.reset();
+        thankyouMessage.classList.remove('hidden');
+      } else {
+        alert('Submission failed. Please try again.');
+      }
+    } catch {
+      alert('Network error. Please try again.');
+    }
+  });
+});
+</script>
+
 </body>
 </html>
