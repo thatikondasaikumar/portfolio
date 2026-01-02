@@ -5,32 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sai Kumar | Data Analyst Portfolio</title>
 
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS CSS -->
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
   <style>
     html { scroll-behavior:smooth; }
     #hero, #about, #skills, #expertise, #experience, #projects, #education, #contact { scroll-margin-top: 90px; }
+
     * { font-family: "Times New Roman", Times, serif; }
 
     :root{
-      --bg:#0b0b0b; --text:#fff; --muted:#1f2937;
-      --accent:#60a5fa; --accent-2:#3b82f6;
+      --bg: #0b0b0b;
+      --text: #ffffff;
+      --muted: #1f2937;
+      --accent: #60a5fa;
+      --accent-2: #3b82f6;
     }
 
     body{ background:var(--bg); color:var(--text); }
-    a{ color:var(--accent); }
+
+    a{ color:var(--accent); text-decoration:none; }
     a:hover{ color:var(--accent-2); text-decoration:underline; }
 
-    .section{ padding:4rem 0; border-top:1px solid var(--muted); }
-    .h-title{ color:var(--accent); }
-    .nav-blur{ backdrop-filter:blur(8px); background:rgba(0,0,0,.7); }
-    .card{ background:#111318; border:1px solid var(--muted); border-radius:1rem; }
-    .chip{ padding:.35rem .8rem; border-radius:999px; border:1px solid var(--muted); }
+    .section{
+      padding-top:4rem; padding-bottom:4rem;
+      border-top:1px solid var(--muted);
+    }
 
-    #hero,#about{
-      background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
-      url("./assets/bg.jpg") center/cover no-repeat;
+    .h-title{ color:var(--accent); }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+      padding:.75rem 1.1rem; border-radius:.6rem; font-weight:700;
+      border:1px solid var(--accent); color:var(--accent);
+      transition: all .15s ease;
+    }
+    .btn:hover{ transform:translateY(-1px); box-shadow:0 10px 20px rgba(96,165,250,.15); }
+    .btn-solid{ background:var(--accent); color:#0b0b0b; border-color:transparent; }
+
+    .chip{
+      display:inline-block; padding:.35rem .8rem; border-radius:999px;
+      border:1px solid var(--muted); color:#e5e7eb;
+      background:rgba(31,41,55,.35);
+    }
+
+    .card{
+      background:#111318; border:1px solid var(--muted); border-radius:1rem;
+    }
+
+    .nav-blur{ backdrop-filter: blur(8px); background:rgba(0,0,0,.7); }
+
+    #hero,
+    #about {
+      background:
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        url("./assets/bg.jpg") center / cover no-repeat;
+    }
+
+    #about.section { border-top-color: transparent; }
+
+    @media (min-width: 1024px) {
+      #hero, #about { background-attachment: fixed; }
     }
   </style>
 </head>
@@ -40,39 +78,47 @@
 <!-- NAVBAR -->
 <nav class="fixed top-0 inset-x-0 nav-blur z-50 border-b border-[var(--muted)]">
   <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="#" class="text-xl font-bold h-title">SAI KUMAR</a>
-    <div class="hidden md:flex gap-6 text-sm">
-      <a href="#hero">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
-      <a href="#experience">Experience</a><a href="#projects">Projects</a>
-      <a href="#education">Education</a><a href="#contact">Contact</a>
+    <a href="#" class="text-xl font-bold tracking-wide h-title">SAI KUMAR</a>
+    <div class="hidden md:flex items-center gap-6 text-sm">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
     </div>
-    <a href="#contact" class="bg-blue-500 px-5 py-2 rounded-xl font-semibold text-black">Hire Me</a>
+    <a href="#contact" class="ml-4 rounded-xl bg-blue-500 hover:bg-blue-600 px-5 py-2 font-semibold text-black">
+      Hire Me
+    </a>
   </div>
 </nav>
 
 <!-- HERO -->
 <header id="hero" class="pt-28 pb-16">
   <div class="max-w-6xl mx-auto px-6 grid gap-10 md:grid-cols-2 items-center">
+
     <div class="flex justify-center md:justify-start">
-      <img src="./assets/profile.jpg" class="w-64 h-64 rounded-full object-cover ring-4 ring-indigo-500/40"/>
+      <img src="./assets/profile.jpg" alt="Sai Kumar"
+           class="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover ring-4 ring-indigo-500/40 shadow-2xl"/>
     </div>
 
     <div class="text-center md:text-left">
       <p class="text-lg text-gray-300">HELLO!</p>
-      <h1 class="mt-2 text-5xl font-bold">
+      <h1 class="mt-2 text-5xl md:text-6xl font-bold">
         I'm <span class="text-indigo-300">Sai Kumar</span>
       </h1>
 
       <p class="mt-5 text-xl text-gray-300">
         Data Analyst / Data Scientist —<br>
-        <span>I turn data into decisions using Power BI, SQL, Python, and Machine Learning.</span>
+        <span id="typed-text"></span>
       </p>
 
-      <div class="mt-8 flex gap-3 flex-wrap justify-center md:justify-start">
-        <a href="https://linkedin.com" class="btn">LinkedIn</a>
-        <a href="https://github.com" class="btn">GitHub</a>
-        <a href="mailto:email@gmail.com" class="btn">Email</a>
-        <a href="./assets/Sai_Kumar_CV.pdf" class="btn btn-solid">Download CV</a>
+      <div class="mt-8 flex flex-wrap justify-center md:justify-start gap-3">
+        <a href="https://www.linkedin.com/in/sai-kumar-thatikonda/" class="btn">LinkedIn</a>
+        <a href="https://github.com/thatikondasaikumar" class="btn">GitHub</a>
+        <a href="mailto:thatikondasaikumar12@gmail.com" class="btn">Email</a>
+        <a href="./assets/Sai_Kumar_CV.pdf" class="btn btn-solid" download>Download CV</a>
       </div>
     </div>
   </div>
@@ -564,19 +610,45 @@
 
 
 
-  <!-- SCRIPTS -->
-<script src="https://unpkg.com/feather-icons"></script>
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- SCRIPTS (load once, at the end) -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-<script>
-  feather.replace();
-  AOS.init({ duration:700, once:true });
+  <script>
+    // Feather icons
+    feather.replace();
 
-  document.querySelectorAll('[data-stagger]').forEach(c=>{
-    [...c.children].forEach((el,i)=>{
-      if(el.hasAttribute('data-aos')) el.setAttribute('data-aos-delay',i*100);
+    // AOS animations
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out-quart',
+      offset: 80,
+      once: true,
+      anchorPlacement: 'top-bottom'
     });
-  });
+
+    // Auto-stagger children of any [data-stagger] container
+    document.querySelectorAll('[data-stagger]').forEach(container => {
+      [...container.children].forEach((el, i) => {
+        if (el.hasAttribute('data-aos')) {
+          el.setAttribute('data-aos-delay', String(i * 100));
+        }
+      });
+    });
+
+    // Typewriter effect
+    document.addEventListener('DOMContentLoaded', function () {
+      const text = "I turn data into decisions using Power BI, SQL, Python, and ML.";
+      const el = document.getElementById('typed-text');
+      const speed = 35;
+      let i = 0;
+      (function type() {
+        if (i < text.length) {
+          el.textContent += text.charAt(i++);
+          setTimeout(type, speed);
+        }
+      })();
+    });
 </script>
 
 </body>
