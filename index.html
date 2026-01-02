@@ -510,7 +510,7 @@
             <div>
               <h4 class="font-medium text-white">Email</h4>
               <p class="text-gray-400">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=thatikondasaikumar12@gmail.com&su=Hello%20Yukta&body=Hi%20Yukta%2C%0A%0A"
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=thatikondasaikumar12@gmail.com&su=Hello%20Sai&body=Hi%20Sai%2C%0A%0A"
                    target="_blank" rel="noopener" class="hover:underline">thatikondasaikumar12@gmail.com</a>
               </p>
             </div>
@@ -554,9 +554,7 @@
   <form action="https://formspree.io/f/xgvnvbbe" method="POST"
         class="bg-dark p-8 rounded-xl border border-gray-800">
 
-    <div id="thankyou-message" class="hidden text-green-400 mt-4 font-semibold">
-      Your message has been received. Thank you!
-    </div>
+    
     
 
 
@@ -590,10 +588,15 @@
 
     <button type="submit"
         class="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition">
-  Send Message
-</button>
+        Send Message
+    </button>
+
+    <!-- Thank you message -->
+    <div id="thankyou-message" class="hidden text-green-400 mt-4 font-semibold text-center">
+      Your message has been received. Thank you!
+    </div>
     <script>
-  const form = document.querySelector('form[action="https://formspree.io/f/xgvnvbbe"]');
+  const form = document.querySelector('form[action="https://formspree.io/f/mqeaprba"]');
   const thankyouMessage = document.getElementById('thankyou-message');
 
   form.addEventListener('submit', function(event) {
