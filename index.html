@@ -14,26 +14,6 @@
   <style>
     html { scroll-behavior:smooth; }
     #hero, #about, #skills, #expertise, #experience, #projects, #education, #contact { scroll-margin-top: 90px; }
-    .bg-hero {
-  /* Background image with dark overlay */
-  background: 
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-    url("./assets/bg.jpg") center / cover no-repeat;
-
-  /* Keep the background fixed */
-  background-attachment: fixed;
-
-  /* Make sure section takes full viewport height */
-  min-height: 100vh;
-
-  /* Optional: center content vertically */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white; /* text color so it shows on dark overlay */
-  padding: 50px 20px;
-}
 
     * { font-family: "Times New Roman", Times, serif; }
 
@@ -157,7 +137,7 @@
   </div>
 </section>
 <!-- SKILLS -->
-  <section id="skills" class="bg-hero" class="section" data-aos="fade-up">
+  <section id="skills" class="section" data-aos="fade-up">
   <div class="grid gap-6 px-6 [grid-template-columns:repeat(auto-fit,minmax(160px,1fr))]" data-stagger>
     <h2 class="col-span-full text-3xl md:text-4xl font-bold mb-6 h-title ml-4 md:ml-8">
       Skills
@@ -251,7 +231,7 @@
   </div>
 </section>
 <!-- EXPERTISE -->
-  <section id="expertise" class="section" class="bg-hero">
+  <section id="expertise" class="section">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-3xl md:text-4xl font-bold mb-10 h-title" data-aos="fade-up">Expertise</h2>
       <div class="grid md:grid-cols-3 gap-6" data-stagger>
@@ -310,7 +290,7 @@
   </section>
 
  <!-- EXPERIENCE -->
-<section id="experience" class="section" class="bg-hero">
+<section id="experience" class="section">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-3xl md:text-4xl font-bold mb-8 h-title">Experience</h2>
 
@@ -404,7 +384,7 @@
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="section" class="bg-hero">
+<section id="projects" class="section">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-3xl md:text-4xl font-bold mb-10 h-title text-center" data-aos="fade-up">Projects</h2>
 
@@ -497,7 +477,7 @@
 <section
   id="contact"
   class="relative py-20 bg-cover bg-center bg-no-repeat md:bg-fixed"
-  class="bg-hero"
+  style="background-image:url('./assets/footer.jpg')"
 >
   <!-- dark overlay -->
   <div class="absolute inset-0 bg-black/70"></div>
