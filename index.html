@@ -457,41 +457,80 @@
 
 
 
-        <div class="card p-6" data-aos="fade-up">
-  <h3 class="text-2xl font-semibold mb-3">Data Warehousing Engineer</h3>
+   <div class="card p-6" data-aos="fade-up">
+  <h3 class="text-2xl font-semibold mb-3">
+    🏗️ Fatal Road Crash Analytics — Data Warehouse & BI Solution
+  </h3>
 
   <p class="text-gray-300 leading-relaxed">
-    Designed and implemented an end-to-end <strong>data warehousing solution</strong> as part of my Master’s degree,
-    focusing on dimensional modelling, ETL pipelines, and analytical querying to support
-    <strong>decision-oriented reporting</strong>.
-    <li>
-      Stack: <strong>SQL</strong>, <strong>Data Warehousing Concepts</strong>,
-      <strong>ETL Design</strong>, <strong>Star Schema</strong>.
-    </li>
+    Designed and built a <strong>production-grade data warehouse</strong> analyzing 35+ years of Australian fatal crash data
+    to support government road safety policy decisions. Applied <strong>Kimball's dimensional modeling methodology</strong>
+    to create a scalable, query-optimized analytical platform supporting multidimensional OLAP analysis.
+    <br><br>
+    <strong>Toolset:</strong> PostgreSQL, Python (pandas), Docker, SQL, Tableau, Association Rule Mining (mlxtend)
   </p>
 
   <ul class="mt-4 space-y-2 text-gray-300 list-disc ml-5">
     <li>
-      <strong>Dimensional Modelling:</strong> Designed a <strong>star schema</strong> with fact and dimension tables
-      to support analytical workloads and business KPIs.
+      <strong>Star Schema Design:</strong> Architected an 8-dimension star schema (DimDate, DimLocation, DimCrashType, 
+      DimSpeedLimitCategory, DimVehicleInvolvement, DimHoliday, DimWeekdayWeekend, DimDwelling) with concept hierarchies 
+      enabling drill-down/roll-up operations across temporal, spatial, and demographic dimensions.
     </li>
     <li>
-      <strong>ETL Pipeline:</strong> Extracted, cleaned, and transformed raw operational data into
-      a structured warehouse-ready format using SQL-based transformations.
+      <strong>ETL Pipeline Development:</strong> Built Python-based ETL workflow processing 50,000+ crash records 
+      and 189,000+ dwelling records; handled data quality issues including placeholder values (-9), missing data, 
+      and LGA name inconsistencies through custom mapping and standardization logic.
     </li>
     <li>
-      <strong>Analytical Queries:</strong> Implemented complex SQL queries for trend analysis,
-      aggregations, and reporting across multiple dimensions.
+      <strong>Data Integration:</strong> Merged crash, fatality, and dwelling datasets; performed categorical binning 
+      (dwelling density: Low/Medium/High/Very High) to enable demographic-based crash analysis.
     </li>
     <li>
-      <strong>Data Quality & Governance:</strong> Ensured consistency, integrity, and repeatability
-      of warehouse data through validation and controlled loading processes.
+      <strong>Query Optimization:</strong> Designed StarNet query model with footprints supporting efficient 
+      multidimensional analysis; implemented complex SQL queries answering 5 strategic business questions 
+      about crash trends, high-risk zones, speed-related fatalities, and temporal patterns.
     </li>
     <li>
-      <strong>Academic Project (UWA):</strong> Demonstrated practical application of enterprise data
-      warehousing principles aligned with real-world business scenarios.
+      <strong>Business Intelligence:</strong> Created interactive Tableau dashboards with choropleth maps identifying 
+      LGA-level crash hotspots; delivered time-series visualizations revealing 58% crash reduction (1989-2020) 
+      followed by concerning post-2020 reversal trend.
+    </li>
+    <li>
+      <strong>Advanced Analytics:</strong> Applied association rule mining (Apriori algorithm) with 0.05 min support 
+      and 0.5 min confidence thresholds; discovered high-risk patterns (e.g., weekday + multi-vehicle + male driver 
+      combinations showing 52.7% driver involvement with 1.17 lift).
+    </li>
+    <li>
+      <strong>Policy Recommendations:</strong> Generated evidence-based safety interventions targeting weekday traffic 
+      enforcement, high-speed zone redesign, and driver education programs based on data-driven pattern discovery.
+    </li>
+    <li>
+      <strong>Database Implementation:</strong> Deployed PostgreSQL database with referential integrity constraints; 
+      used COPY command for efficient bulk loading; validated schema through ERD generation and query testing.
     </li>
   </ul>
+
+  <div class="mt-4 p-4 rounded-lg bg-gray-800 border border-gray-700">
+    <h4 class="font-semibold mb-2">📊 Key Insights Delivered</h4>
+    <ul class="list-disc ml-5 space-y-1 text-gray-300">
+      <li>NSW had highest fatality count with <strong>"Very High" dwelling density areas</strong> contributing most deaths</li>
+      <li><strong>High-speed zones</strong> showed highest fatality rates, dominated by single-vehicle crashes (driver fatigue likely)</li>
+      <li><strong>Weekday crashes 46% higher</strong> than weekends, indicating commute-related risk concentration</li>
+      <li>Post-2020 crash reversal trend identified, signaling need for <strong>renewed safety interventions</strong></li>
+      <li>Top 50 LGA hotspots mapped geographically for <strong>targeted resource allocation</strong></li>
+    </ul>
+  </div>
+
+  <div class="mt-4 p-4 rounded-lg bg-gray-800 border border-gray-700">
+    <h4 class="font-semibold mb-2">🛠️ Technical Implementation</h4>
+    <ul class="list-disc ml-5 space-y-1 text-gray-300">
+      <li><strong>Data Volume:</strong> 50K+ crash records, 189K+ dwelling records, 35+ years temporal range</li>
+      <li><strong>Schema Complexity:</strong> 8 dimensions with parallel hierarchies (e.g., State→LGA and Dwelling Category paths)</li>
+      <li><strong>ETL Automation:</strong> Dockerized Python pipeline with pandas-based transformation logic</li>
+      <li><strong>Data Quality:</strong> Standardized "MISSING" placeholder handling; custom LGA name reconciliation</li>
+      <li><strong>Query Performance:</strong> Star schema design optimized for OLAP aggregation queries</li>
+    </ul>
+  </div>
 </div>
 
 
