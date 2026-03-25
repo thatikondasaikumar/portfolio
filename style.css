@@ -55,17 +55,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-
   padding: 140px 60px;
   gap: 80px;
-
   background:
     linear-gradient(rgba(5, 11, 20, 0.88), rgba(5, 11, 20, 0.88)),
     url("assets/bg.jpg");
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    background-attachment: fixed;
+  }
 }
 .hero-left,
 .hero-right {
